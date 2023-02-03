@@ -30,7 +30,10 @@ export default function Form() {
           <label className="label">Nombre</label>
         </p>
 
-        <input type="text" {...register("firstName", { required: true })} />
+        <input
+          type="text"
+          {...register("firstName", { required: true, minLength: 3 })}
+        />
       </div>
       <div className="form-control">
         <p>
