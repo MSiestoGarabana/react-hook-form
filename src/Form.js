@@ -17,7 +17,7 @@ export default function Form() {
   }
   function onReset() {
     reset({
-      firstName: "Paco",
+      firstName: "...",
     });
   }
 
@@ -30,9 +30,17 @@ export default function Form() {
           <label className="label">Nombre</label>
         </p>
 
-        <input type="text" {...register("firstName")} />
+        <input type="text" {...register("firstName", { required: true })} />
       </div>
-
+      <div className="form-control">
+        <p>
+          <label className="label">Email</label>
+        </p>
+        <input
+          type="text"
+          {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
+        />
+      </div>
       <div className="form-control">
         <p>
           <label className="label">Tipo</label>
@@ -42,6 +50,22 @@ export default function Form() {
           <option value="backend">Backend</option>
           <option value="fullstack">FullStack</option>
         </select>
+        <div className="form-control">
+          <p>
+            <label className="label">Freelance</label>
+          </p>
+          <label>
+            Sí
+            <input {...register("freelance")} type="radio" value="s" />
+          </label>
+          <label>
+            No
+            <input {...register("freelance")} type="radio" value="n" />
+          </label>
+        </div>
+        <button type="submit" className="submit">
+          Enviar
+        </button>
         <button onClick={onReset()}>Reset</button>
       </div>
     </form>
