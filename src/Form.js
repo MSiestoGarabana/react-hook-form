@@ -1,12 +1,12 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import InputFirstName from "./InputFirstName";
 
 export default function Form() {
-  const { handleSubmit, register, formState, reset, watch } = useForm({
+  const { handleSubmit, register, formState, reset } = useForm({
     //si reset, estos serán los valores
     defaultValues: {
       firstName: "Gerardo",
+      image: null,
       freeLance: "s",
       type: "backend",
     },
@@ -21,8 +21,6 @@ export default function Form() {
     });
   }
 
-  console.log("render");
-
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="form-control">
@@ -34,6 +32,7 @@ export default function Form() {
           type="text"
           {...register("firstName", { required: true, minLength: 3 })}
         />
+        <p></p>
       </div>
       <div className="form-control">
         <p>
@@ -69,7 +68,9 @@ export default function Form() {
         <button type="submit" className="submit">
           Enviar
         </button>
-        <button onClick={onReset()}>Reset</button>
+        <button onClick={onReset} type="reset" className="reset">
+          Reset
+        </button>
       </div>
     </form>
   );

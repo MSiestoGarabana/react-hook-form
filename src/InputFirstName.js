@@ -1,9 +1,10 @@
 export default function InputFirstName({ register }) {
   return (
-    <div>
+    <div className="form-control">
       <p>
-        <label></label>
+        <label className="label">Nombre</label>
       </p>
+      <input type="text" {...register("firstName", { required: true })} />
     </div>
   );
 }
