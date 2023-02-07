@@ -9,7 +9,7 @@ export default function Form() {
       contact: {
         email: "your email here",
       },
-      freelance: "s",
+      freelance: "y",
       type: "frontend",
     },
   });
@@ -20,6 +20,7 @@ export default function Form() {
   function onReset() {
     reset();
   }
+
   console.log("render");
 
   return (
@@ -39,7 +40,7 @@ export default function Form() {
       </div>
       <div className="form-control">
         <p>
-          <label className="label">Tipo</label>
+          <label className="label">Type</label>
         </p>
         <select {...register("type")}>
           <option value="frontend">Frontend</option>
@@ -52,7 +53,7 @@ export default function Form() {
           </p>
           <label>
             Sí
-            <input {...register("freelance")} type="radio" value="s" />
+            <input {...register("freelance")} type="radio" value="y" />
           </label>
           <label>
             No
