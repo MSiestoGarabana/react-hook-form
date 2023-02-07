@@ -2,11 +2,14 @@ import React from "react";
 import { useForm } from "react-hook-form";
 
 export default function Form() {
-  const { handleSubmit, register, formState, reset } = useForm({
+  const { handleSubmit, register, reset } = useForm({
     //si reset, estos serán los valores
     defaultValues: {
-      firstName: "Gerardo",
-      image: null,
+      firstName: "Gerard",
+      contact: {
+        email: "your email here",
+        telephone: "",
+      },
       freeLance: "s",
       type: "backend",
     },
@@ -16,10 +19,12 @@ export default function Form() {
     console.log(formData);
   }
   function onReset() {
+    console.log("llamada");
     reset({
-      firstName: "...",
+      firstName: "Reset Clicked",
     });
   }
+  console.log("render");
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -27,12 +32,10 @@ export default function Form() {
         <p>
           <label className="label">Nombre</label>
         </p>
-
         <input
           type="text"
           {...register("firstName", { required: true, minLength: 3 })}
         />
-        <p></p>
       </div>
       <div className="form-control">
         <p>
@@ -40,7 +43,10 @@ export default function Form() {
         </p>
         <input
           type="text"
-          {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
+          {...register("contact.email", {
+            required: true,
+            pattern: /^\S+@\S+$/i,
+          })}
         />
       </div>
       <div className="form-control">
