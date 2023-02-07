@@ -4,13 +4,14 @@ export default function InputFirstName({ register, control }) {
     control,
     name: "firstName",
   });
+  console.log("render InputName");
   return (
     <div className="form-control">
       <p>
         <label className="label">Nombre</label>
       </p>
       <input type="text" {...register("firstName", { required: true })} />
-      <p>Rendering only this component: {firstName}</p>
+      <p>onInput, Rendering only this component: {firstName}</p>
     </div>
   );
 }

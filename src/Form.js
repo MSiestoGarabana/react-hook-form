@@ -4,15 +4,13 @@ import InputFirstName from "./InputFirstName";
 
 export default function Form() {
   const { handleSubmit, register, reset, control } = useForm({
-    //si reset, estos serán los valores
     defaultValues: {
-      firstName: "Gerard",
+      firstName: "Gerardo",
       contact: {
         email: "your email here",
-        telephone: "",
       },
-      freeLance: "s",
-      type: "backend",
+      freelance: "s",
+      type: "frontend",
     },
   });
 
@@ -20,10 +18,7 @@ export default function Form() {
     console.log(formData);
   }
   function onReset() {
-    console.log("llamada");
-    reset({
-      firstName: "Reset Clicked",
-    });
+    reset();
   }
   console.log("render");
 
@@ -64,9 +59,8 @@ export default function Form() {
             <input {...register("freelance")} type="radio" value="n" />
           </label>
         </div>
-        <button type="submit" className="submit">
-          Enviar
-        </button>
+        <button className="submit">Enviar</button>
+
         <button onClick={onReset} type="reset" className="reset">
           Reset
         </button>
