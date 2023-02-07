@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import InputFirstName from "./InputFirstName";
 
 export default function Form() {
-  const { handleSubmit, register, reset, watch } = useForm({
+  const { handleSubmit, register, reset, control } = useForm({
     //si reset, estos serán los valores
     defaultValues: {
       firstName: "Gerard",
@@ -29,7 +29,7 @@ export default function Form() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <InputFirstName />
+      <InputFirstName register={register} control={control} />
       <div className="form-control">
         <p>
           <label className="label">Email</label>
