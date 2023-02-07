@@ -1,8 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import InputFirstName from "./InputFirstName";
 
 export default function Form() {
-  const { handleSubmit, register, reset } = useForm({
+  const { handleSubmit, register, reset, watch } = useForm({
     //si reset, estos serán los valores
     defaultValues: {
       firstName: "Gerard",
@@ -28,15 +29,7 @@ export default function Form() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="form-control">
-        <p>
-          <label className="label">Nombre</label>
-        </p>
-        <input
-          type="text"
-          {...register("firstName", { required: true, minLength: 3 })}
-        />
-      </div>
+      <InputFirstName />
       <div className="form-control">
         <p>
           <label className="label">Email</label>
